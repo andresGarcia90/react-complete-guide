@@ -25,10 +25,15 @@ function App() {
     { id: 4, title: "Extra", amount: 1025.35, date: new Date(2021, 7, 14) },
   ];
 
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
+    console.log(expense);
+  };
+
   return (
     <div>
       <h2>Let's get started!</h2>
-      <NewExpense></NewExpense>
+      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
       <div className="expenses">
         <Expenses expenses={expenses}></Expenses>
       </div>
