@@ -14,25 +14,21 @@ const AddUsers = (props) => {
   };
 
   const usernameChangeHandle = (event) => {
-    console.log(event.target.value);
     setUsername(event.target.value);
   };
 
   const ageChangeHandle = (event) => {
-    console.log(event.target.value);
     setAge(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShowModalError(true);
-    if (event.target) {
-      // props.newUser = {
-      //     username: username,
-      //     age: age
-      // };
-      setUsername("");
-      setAge("");
+    if(username.trim().length === 0 || age < 1){
+        setShowModalError(true);
+    }
+    else{
+        setUsername("");
+        setAge("");
     }
   };
 
