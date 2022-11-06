@@ -27,6 +27,7 @@ const AddUsers = (props) => {
         setShowModalError(true);
     }
     else{
+        props.onAddUser(username, age);
         setUsername("");
         setAge("");
     }
