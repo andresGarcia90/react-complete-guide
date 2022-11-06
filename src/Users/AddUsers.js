@@ -23,13 +23,12 @@ const AddUsers = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(username.trim().length === 0 || age < 1){
-        setShowModalError(true);
-    }
-    else{
-        props.onAddUser(username, age);
-        setUsername("");
-        setAge("");
+    if (username.trim().length === 0 || age < 1) {
+      setShowModalError(true);
+    } else {
+      props.onAddUser(username, age);
+      setUsername("");
+      setAge("");
     }
   };
 
