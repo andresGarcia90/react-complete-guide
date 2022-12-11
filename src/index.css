@@ -2,13 +2,15 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: sans-serif;
+  background: #fff;
+}
+
 body {
-  font-family: Lato;
-  height: 97vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #4A4E69;
+  margin: 0;
+}
+
+main {
+  margin-top: 6rem;
 }
