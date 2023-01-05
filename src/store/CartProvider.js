@@ -22,7 +22,22 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === 'REMOVE') {
-    console.log("dispatch remove");
+    const removeId = action.id;
+    let updatedItems = [...state.items];
+    const indexOfExistingItem = state.items.findIndex(item => item.id === removeId); 
+    
+    let updateTotalAmount = state.totalAmount;
+    if (indexOfExistingItem > -1) {
+      let actualItem =  updatedItems[indexOfExistingItem];
+      actualItem.amount = actualItem.amount - 1;
+      updatedItems[indexOfExistingItem] = actualItem; 
+      updateTotalAmount = updateTotalAmount - actualItem.price;
+      if (updatedItems[indexOfExistingItem].amount === 0) {
+        updatedItems.splice(indexOfExistingItem, 1);
+      }
+    }
+
+    return { items: updatedItems, totalAmount: updateTotalAmount };
   }
   return defaultCartState;
 };
