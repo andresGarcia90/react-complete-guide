@@ -1,30 +1,34 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Products from './components/Products';
-import Welcome from './components/Welcome';
+import { Link, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Welcome from './pages/Welcome';
+import Products from './pages/Products';
 
 function App() {
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <div>Hello world!</div>,
-    },
-    {
-      path: "/welcome",
-      element: <Welcome/>,
-    },
-    {
-      path: "/products",
-      element: <Products/>,
-    },
-  ]);
-
-
-
   return (
     <>
-      <RouterProvider router={router} />
+      <header>
+        <Navbar></Navbar>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Welcome />}>
+            <Route index element={<Products />} />
+            <Route path="*" element={<NoMatch />} />
+          </Route>
+        </Routes>
+      </main>
     </>
+  );
+}
+
+function NoMatch() {
+  return (
+    <div>
+      <h2>Nothing to see here!</h2>
+      <p>
+        <Link to="/">Go to the home page</Link>
+      </p>
+    </div>
   );
 }
 
