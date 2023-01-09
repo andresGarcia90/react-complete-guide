@@ -1,13 +1,22 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from 'react-router-dom';
 import NewQuote from './pages/NewQuote';
 import AllQuotes from './pages/AllQuotes';
 import QuoteDetail from './pages/QuoteDetail';
+import Comments from './components/comments/Comments';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: '/',
+      element: <Navigate to="/quotes" replace />,
+    },
+    {
+      path: '/quotes',
       element: <AllQuotes />,
     },
     {
@@ -17,6 +26,12 @@ function App() {
     {
       path: '/quotes/:quoteId',
       element: <QuoteDetail />,
+      children: [
+        {
+          path: 'comments',
+          element: <Comments />
+        }
+      ]
     },
     {
       path: '*',
