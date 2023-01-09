@@ -11,7 +11,7 @@ function App() {
     <>
      <Layout />
       <Routes>
-        <Route path="/" element={<Navigate to="/" replace />} />
+        <Route path="/" element={<Navigate to="/quotes" replace />} />
         <Route index path="/quotes" element={<AllQuotes />} />
         <Route path="/new-quote" element={<NewQuote />} />
         <Route path="/quotes/:quoteId" element={<QuoteDetail />}>
