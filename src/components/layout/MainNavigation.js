@@ -10,7 +10,7 @@ function MainNavigation() {
           <li>
             <NavLink
               to={'/quotes'}
-              style={({ isActive }) => (isActive ? 'active' : '')}
+              // style={({ isActive }) => (isActive ? 'active' : '')}
             >
               All Quotes
             </NavLink>
@@ -18,7 +18,7 @@ function MainNavigation() {
           <li>
             <NavLink
               to={'/new-quote'}
-              style={({ isActive }) => (isActive ? 'active' : '')}
+              // style={({ isActive }) => (isActive ? 'active' : '')}
             >
               Add Quote
             </NavLink>
