@@ -1,8 +1,12 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 function Welcome() {
   return (
-    <div>Welcome</div>
+    <section>
+      <div>Welcome</div>
+      <Outlet />
+    </section>
   )
 }
 

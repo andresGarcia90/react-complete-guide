@@ -4,6 +4,7 @@ import Welcome from './pages/Welcome';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import classes from './App.module.css';
+import React from 'react';
 
 function App() {
   return (
@@ -14,13 +15,15 @@ function App() {
       <main>
         <hr />
         <Routes>
-            <Route path="/" element={<Welcome />} />
-            <Route path='welcome' element={<Welcome></Welcome>} />
-            <Route path="products" element={<Products />} />
-            <Route path="products/:productId" element={<ProductDetail />} />
-            <Route path="*" element={<NoMatch />} />
+          <Route path="/" element={<Welcome />} />
+          <Route path="products" element={<Products />} />
+          <Route path="products/:productId" element={<ProductDetail />} />
+          <Route path="welcome" element={<Welcome></Welcome>}>
+            <Route path="new-user" element={<><p>Hello new User</p></>}></Route>
+          </Route>
+          <Route path="*" element={<NoMatch />} />
         </Routes>
-        <Outlet/>
+        <Outlet />
       </main>
     </>
   );
