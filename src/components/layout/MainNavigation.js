@@ -10,7 +10,7 @@ function MainNavigation() {
           <li>
             <NavLink
               to={'/quotes'}
-              // style={({ isActive }) => (isActive ? 'active' : '')}
+              className={(navData) => (navData.isActive ? classes.active : '')}
             >
               All Quotes
             </NavLink>
@@ -18,7 +18,7 @@ function MainNavigation() {
           <li>
             <NavLink
               to={'/new-quote'}
-              // style={({ isActive }) => (isActive ? 'active' : '')}
+              className={(navData) => (navData.isActive ? classes.active : '')}
             >
               Add Quote
             </NavLink>
