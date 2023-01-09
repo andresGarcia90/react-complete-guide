@@ -1,21 +1,26 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Outlet, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Welcome from './pages/Welcome';
 import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
+import classes from './App.module.css';
 
 function App() {
   return (
     <>
-      <header>
+      <header className={classes.header}>
         <Navbar></Navbar>
       </header>
       <main>
+        <hr />
         <Routes>
-          <Route path="/" element={<Welcome />}>
-            <Route index element={<Products />} />
+            <Route path="/" element={<Welcome />} />
+            <Route path='welcome' element={<Welcome></Welcome>} />
+            <Route path="products" element={<Products />} />
+            <Route path="products/:productId" element={<ProductDetail />} />
             <Route path="*" element={<NoMatch />} />
-          </Route>
         </Routes>
+        <Outlet/>
       </main>
     </>
   );
