@@ -3,7 +3,6 @@ import classes from './Layout.module.css';
 import MainNavigation from './MainNavigation';
 
 function Layout(props) {
-  console.log("entro aca");
   return (
     <>
       <MainNavigation>
