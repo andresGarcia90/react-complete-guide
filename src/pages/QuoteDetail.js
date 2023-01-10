@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet, useParams } from 'react-router-dom'
+import { Outlet, useNavigate, useParams } from 'react-router-dom'
 import HighlightedQuote from '../components/quotes/HighlightedQuote';
 
 const DUMMY_QUOTES = [
@@ -10,9 +10,12 @@ const DUMMY_QUOTES = [
 function QuoteDetail() {
   const { quoteId } = useParams();
   const quote = DUMMY_QUOTES.find(quote => quote.id === quoteId);
+  const navigate = useNavigate();
   if (!quote) {
-    return <Link to={'/no-found'} />;
+    navigate('/no-found');// Call in a use effects
+    return;
   }
+
   return (
     <>
       <HighlightedQuote text={quote.text} author={quote.author}></HighlightedQuote>
